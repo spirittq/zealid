@@ -100,9 +100,8 @@ def index():
             'surname_check': compare(provided_info['surname'], mrz_info['surname']),
             'birth_date_check': compare(provided_info['date'].strftime('%Y-%m-%d'), mrz_info['birth_date']),
         }
-        print(check['name_check'], check['surname_check'], check['birth_date_check'])
-        # Task 5 - if results are same, check is True, if different - check is False. Results rendered into html page
 
+        # Task 5 - if results are same, check is True, if different - check is False. Results rendered into html page
         return render_template("result.html", provided_info=provided_info, mrz_info=mrz_info, check=check)
     return render_template("index.html", form=form)
 

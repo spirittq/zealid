@@ -25,7 +25,6 @@ def mrz_extract(text):
     text = text.replace(' ', '')
     text = text.replace('\u304f', '<')
     text = text.replace('\u3001', '<')
-    print(text)
 
     # take only relevant part of the string
     pattern = re.compile(r'([A-Z])([A-Z0-9<])([A-Z]{3})([A-Z<]{1,39})([A-Z0-9<]{1,9})([O0-9])([A-Z]{3})([0-9]{6})([0-9])([MF<])([0-9]{6})([0-9])([A-Z0-9<]{14})([0-9])([0-9])')
