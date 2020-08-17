@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if mrz_error %}
+        <div>
+            <p>{{ mrz_error }}</p>
+            <a href="{{ url_for('index') }}">Try again</a>
+        </div>
+    {% else %}
+        <div class="container">
+            <div class="provided">
+                <h3>Provided info:</h3>
+                <ul>
+                    <li>{{ provided_info['name'] }} -
+                        {% if check['name_check'] %} <span class="text-success">Matched</span> {% else %} <span class="text-danger">Mismatch</span>{% endif %}
+                    </li>
+                    <li>{{ provided_info['surname'] }} -
+                        {% if check['surname_check'] %} <span class="text-success">Matched</span> {% else %} <span class="text-danger">Mismatch</span>{% endif %}
+                    </li>
+                    <li>{{ provided_info['date'] }} -
+                        {% if check['birth_date_check'] %} <span class="text-success">Matched</span> {% else %} <span class="text-danger">Mismatch</span>{% endif %}
+                    </li>
+                </ul>
+            </div>
+            <div class="passport">
+                <h3>Passport info:</h3>
+                <ul>
+                    <li>Personal number: {{ mrz_info['personal_number'] }}</li>
+                    <li>Country code: {{ mrz_info['country_code'] }}</li>
+                    <li>Name: {{ mrz_info['name'] }}</li>
+                    <li>Surname: {{ mrz_info['surname'] }}</li>
+                    <li>Passport number: {{ mrz_info['pass_number'] }}</li>
+                    <li>Nationality: {{ mrz_info['nationality'] }}</li>
+                    <li>Birth Date: {{ mrz_info['birth_date'] }}</li>
+                    <li>Sex: {{ mrz_info['sex'] }}</li>
+                    <li>Passport expiration date: {{ mrz_info['pass_expiration_date'] }}</li>
+                </ul>
+            </div>
+            <a href="{{ url_for('index') }}">Try again</a>
+        </div>
+    {% endif %}
+{% endblock %}
