@@ -32,7 +32,9 @@ def mrz_extract(text):
 
     # some < symbols were missing, made sure that string is 88 characters long
     while len(regex_result) < 88:
-        x = regex_result.find("0")
+        pattern_2 = re.compile(r'[0-9]{1}')
+        regex_result_2 = pattern_2.search(text).group()
+        x = regex_result.find(f"{regex_result_2}")
         regex_result = regex_result[:x] + "<" + regex_result[x:]
 
     # organize string into meaningful data parts
