@@ -87,6 +87,3 @@ def compare(manual, photo):
     if manual != photo:
         return False
     return True
-
-
-

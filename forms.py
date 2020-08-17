@@ -12,4 +12,3 @@ class DataForm(FlaskForm):
     image = FileField('Image File', validators=[FileRequired(), FileAllowed(['jpg', 'png'])])
     submit = SubmitField('Submit')
 
-# [validators.regexp(u'^[^/\\\\]\.jpg$')]
