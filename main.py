@@ -66,6 +66,9 @@ def index():
         db.session.commit()
 
         # Task 2 - make an API call in required format, gather ocr_texts[0] for further usage
+        
+        # api_key/api_key.txt is DELETED, as it was given for the task only.
+        
         with open("static/api_key/api_key.txt", 'r') as file:
             api_key = file.read()
 
